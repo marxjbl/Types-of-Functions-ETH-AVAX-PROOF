@@ -14,8 +14,8 @@ interface IERC20 {
 
 contract MyToken is IERC20 {
     // Public variables
-    string public tokenName = "ETH PROOF";
-    string public tokenAbbrv = "ETHPRF";
+    string public tokenName = "ETH AVAX";
+    string public tokenAbbrv = "ETHVX";
     uint256 public override totalSupply;
 
     // Mapping variable to store balances of each address
