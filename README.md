@@ -1,83 +1,45 @@
-# MyToken ERC20 Contract
+# MyToken (MTK) Smart Contract
 
-## Overview
-
-This repository contains a Solidity smart contract for an ERC20 token called "ETH AVAX" (symbol: ETHVX). 
-The contract allows users to mint, burn, transfer, and approve tokens. It implements the standard ERC20 functionality with additional features for minting and burning tokens.
+This repository contains a Solidity smart contract for an ERC20 token named MyToken (MTK). The contract allows the owner to mint and burn tokens and follows the ERC20 standard provided by OpenZeppelin.
 
 ## Features
 
-- **Minting:** Create new tokens and assign them to a specific address.
-- **Burning:** Remove tokens from a specified address and decrease the total supply.
-- **Transfer:** Transfer tokens between addresses.
-- **Approval:** Approve another address to spend tokens on behalf of the owner.
-- **TransferFrom:** Transfer tokens from one address to another using an approved allowance.
-
-## Contract Details
-
-### Contract Address
-
-The contract can be deployed on any Ethereum-compatible network. Make sure to replace the placeholder address in your deployment script.
-
-### Events
-
-- `Transfer(address indexed from, address indexed to, uint value)`: Emitted when tokens are transferred.
-- `Approval(address indexed owner, address indexed spender, uint value)`: Emitted when tokens are approved for spending.
-
-### Functions
-
-- `mint(address _address, uint _value)`: Mints new tokens and assigns them to `_address`.
-- `burn(address _address, uint _value)`: Burns tokens from `_address` and reduces the total supply.
-- `transfer(address _to, uint _value)`: Transfers tokens from the caller to `_to`.
-- `approve(address _spender, uint _value)`: Approves `_spender` to spend `_value` tokens on behalf of the caller.
-- `transferFrom(address _from, address _to, uint _value)`: Transfers tokens from `_from` to `_to` using an approved allowance.
+- ERC20 compliant token.
+- Initial supply of 1 million tokens minted to the contract owner.
+- Only the owner can mint new tokens.
+- Only the owner can burn tokens.
 
 ## Usage
 
-1. **Deploying the Contract:**
+### Interacting with the Contract
 
-   You can deploy this contract using Remix, HardHat, or any Ethereum development environment. Make sure you have sufficient ETH in your account to deploy and interact with the contract.
+Once deployed, the contract provides several functions to interact with the MyToken (MTK) token.
 
-2. **Interacting with the Contract:**
+#### Minting Tokens
 
-   - **Mint Tokens:** Call the `mint` function to create new tokens.
-   - **Burn Tokens:** Call the `burn` function to remove tokens from an address.
-   - **Transfer Tokens:** Use the `transfer` function to send tokens to another address.
-   - **Approve Spending:** Call `approve` to allow another address to spend tokens on your behalf.
-   - **Transfer From:** Use `transferFrom` to transfer tokens from one address to another with an approved allowance.
+The owner can mint new tokens to a specified address.
 
-## Installation
+```solidity
+function mint(address to, uint256 amount) public onlyOwner
+```
 
-To deploy and interact with this contract, follow these steps:
+#### Burning Tokens
 
-1. **Clone the Repository:**
+The owner can burn a specified amount of tokens from their balance.
 
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   ```
+```solidity
+function burn(uint256 amount) public onlyOwner
+```
 
-2. **Navigate to the Project Directory:**
+#### OpenZeppelin Contracts
 
-   ```bash
-   cd your-repo-name
-   ```
+This contract uses the OpenZeppelin library for the ERC20 implementation and access control.
 
-3. Install Dependencies:
+ERC20: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/token/ERC20/ERC20.sol
 
-   Make sure you have Node.js and HardHat installed. Then run:
-
-   ```bash
-   npm install
-   ```
-
-5. **Deploy The Contract:**
-   Use HardHat or another tool to deploy the contract to your preferred network. Example command for HardHat:
-
-   ```bash
-   npx hardhat run scripts/deploy.js --network <network_name>
-   ```
+Ownable: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/access/Ownable.sol
 
 ## Author
 
 Marx Lizardo  
-[LinkedIn](https://www.linkedin.com/in/marxjbl/) 
+[LinkedIn](https://www.linkedin.com/in/marxjbl/)
