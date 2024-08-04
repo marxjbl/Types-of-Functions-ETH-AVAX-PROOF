@@ -6,7 +6,8 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contr
 
 contract MyToken is ERC20, Ownable {
     constructor() ERC20("My Token", "MTK") {
-        // Initialize the contract with the token name and symbol
+        mintInitialTokens();
+        // Initialize the contract with the token name, symbol, and initial 1M tokens
     }
 
     // Override the _mint function to only allow the owner to mint tokens
