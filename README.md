@@ -5,7 +5,7 @@ This repository contains a Solidity smart contract for an ERC20 token named MyTo
 ## Features
 
 - ERC20 compliant token.
-- Initial supply of 1 million tokens minted to the contract owner.
+- Initial supply of 1 million tokens minted to the contract owner upon deployment.
 - Only the owner can mint new tokens.
 - Only the owner can burn tokens.
 
@@ -20,7 +20,7 @@ Once deployed, the contract provides several functions to interact with the MyTo
 The owner can mint new tokens to a specified address.
 
 ```solidity
-function mint(address to, uint256 amount) public onlyOwner
+function _mint(address account, uint256 amount) internal override onlyOwner
 ```
 
 #### Burning Tokens
@@ -35,11 +35,9 @@ function burn(uint256 amount) public onlyOwner
 
 This contract uses the OpenZeppelin library for the ERC20 implementation and access control.
 
-ERC20: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/token/ERC20/ERC20.sol
-
-Ownable: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/access/Ownable.sol
+- [ERC20](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/token/ERC20/ERC20.sol)
+- [Ownable](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/access/Ownable.sol)
 
 ## Author
 
-Marx Lizardo  
-[LinkedIn](https://www.linkedin.com/in/marxjbl/)
+[Marx Lizardo](https://www.linkedin.com/in/marxjbl/)
